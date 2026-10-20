@@ -1,0 +1,113 @@
+@import "tailwindcss";
+/* button variants are composed dynamically (`btn-${variant}`), so make sure they are always generated */
+@source inline("btn-primary btn-secondary btn-accent btn-danger btn-ghost");
+
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+
+  --color-forest-50: #eef5f0;
+  --color-forest-100: #d6e8dc;
+  --color-forest-200: #aed1bb;
+  --color-forest-300: #7fb495;
+  --color-forest-500: #2f7a52;
+  --color-forest-600: #22603f;
+  --color-forest-700: #1b4d33;
+  --color-forest-800: #153d29;
+  --color-forest-900: #0f2c1e;
+
+  --color-leaf-100: #e6f4d9;
+  --color-leaf-400: #8cc35f;
+  --color-leaf-500: #6cab3f;
+  --color-leaf-600: #558c2f;
+
+  --color-cream: #faf7f0;
+  --color-sand: #f2ece0;
+  --color-ink: #1d2a23;
+  --color-muted: #5d6b63;
+
+  --color-saffron-100: #fdf0d8;
+  --color-saffron-400: #f5b544;
+  --color-saffron-500: #ec9b1c;
+  --color-saffron-700: #a86509;
+
+  --radius-xl: 0.9rem;
+  --radius-2xl: 1.25rem;
+  --shadow-soft: 0 1px 2px rgb(16 40 28 / 0.04), 0 4px 16px rgb(16 40 28 / 0.06);
+  --shadow-lift: 0 2px 4px rgb(16 40 28 / 0.05), 0 12px 32px rgb(16 40 28 / 0.1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-cream text-ink antialiased;
+  }
+  h1, h2, h3 {
+    @apply tracking-tight;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-saffron-400);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--color-leaf-100);
+  }
+}
+
+@utility container-page {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+@utility card {
+  @apply rounded-2xl border border-black/[0.06] bg-white shadow-[var(--shadow-soft)];
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-60;
+}
+@utility btn-primary {
+  @apply btn bg-forest-700 text-white hover:bg-forest-800;
+}
+@utility btn-secondary {
+  @apply btn border border-forest-200 bg-white text-forest-800 hover:bg-forest-50;
+}
+@utility btn-accent {
+  @apply btn bg-saffron-400 text-forest-900 hover:bg-saffron-500;
+}
+@utility btn-danger {
+  @apply btn border border-red-200 bg-white text-red-700 hover:bg-red-50;
+}
+@utility btn-ghost {
+  @apply btn text-forest-800 hover:bg-forest-50;
+}
+@utility btn-sm {
+  @apply px-3! py-1.5! text-xs!;
+}
+@utility input {
+  @apply block w-full rounded-xl border border-black/10 bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/60 shadow-sm transition focus:border-forest-500 focus:ring-4 focus:ring-forest-100 focus:outline-none;
+}
+@utility label {
+  @apply mb-1.5 block text-sm font-medium text-ink;
+}
+@utility eyebrow {
+  @apply text-xs font-bold uppercase tracking-[0.14em] text-leaf-600;
+}
+@utility link {
+  @apply font-medium text-forest-700 underline decoration-forest-200 underline-offset-4 hover:decoration-forest-500;
+}
+
+.leaflet-container {
+  font: inherit;
+  border-radius: 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+}
