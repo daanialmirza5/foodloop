@@ -15,7 +15,7 @@ A full-stack food donation & rescue platform that connects surplus food from res
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178c6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-node%3Asqlite-003b57?logo=sqlite&logoColor=white)
-![Tests](https://img.shields.io/badge/tests-28%20passing-2f7a52)
+[![CI](https://github.com/daanialmirza5/foodloop/actions/workflows/ci.yml/badge.svg)](https://github.com/daanialmirza5/foodloop/actions/workflows/ci.yml)
 
 <img src="docs/screenshots/home.png" alt="FoodLoop home page" width="100%" />
 
